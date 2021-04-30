@@ -21,8 +21,11 @@ class App extends Component {
     this.addItem = this.addItem.bind(this)
     this.handleTodo = this.handleTodo.bind(this)
     this.removeItem = this.removeItem.bind(this)
+    this.focusInput = React.createRef()
   }
-
+  componentDidMount(){
+    this.focusInput.current.focus()
+  }
   
   addItem(e){
     e.preventDefault()
@@ -61,6 +64,8 @@ class App extends Component {
           addItem={this.addItem}
           todo={this.state.todo.text}
           handleTodo={this.handleTodo}
+          focusInput={this.focusInput}
+          taskCounter={this.state.todoList.length}
         />
         <TodoList
           removeItem={this.removeItem}
