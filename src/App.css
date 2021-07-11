@@ -2,23 +2,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
 }
 body {
-    font-family: 'Work Sans', sans-serif;
+    background-color: #dcd6f7;
 }
 .App {
     max-width: 400px;
     margin: 50px auto;
+    padding: 0 10px;
 }
 .form-container {
     text-align: center;
-    background-color: #eabf9f;
+    background-color: #424874;
     padding: 20px;
 }
 
 .taskCounter {
     margin-top: 13px;
     text-align: center;
+    color: #f4eeff;
 }
 
 input {
@@ -35,12 +38,46 @@ li {
     height: 50px;
     padding: 20px;
     margin-top: 2px;
-    background-color: #f1d1d0;
+    background-color: #f4eeff;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
 }
 .addBtn {
-    outline: 0;
-    padding: 7px;
+    border: 0;
+    padding: 8px;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 5px;
+    color: #424874;
+    background-color: #f4eeff;
+    transition: 0.3s;
+}
+.addBtn:hover {
+    background-color: #dcd6f7;
+    transition: 0.3s ease;
+}
+.removeBtn, .completeTask {
+    border: 0;
+    color: #364f6b;
+    font-size: 30px;
+    background-color: #f4eeff;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.removeBtn:hover {
+    transform: scale(1.2);
+    transition: 0.3s ease;  
+}
+.completeTask:hover {
+    transform: scale(1.2);
+    transition: 0.3s ease; 
+}
+.incomplete {
+    text-decoration: none;
+}
+.complete {
+    text-decoration: line-through;
 }

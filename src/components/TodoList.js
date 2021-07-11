@@ -1,7 +1,7 @@
 import React from 'react'
 import Todo from './Todo'
-const TodoList = props => {
-    const {todoList, removeItem} = props
+const TodoList = ({todoList, removeItem, completeTask}) => {
+  
     return (
         <ul className='itemList'>
             {todoList.map(item =>
@@ -9,10 +9,9 @@ const TodoList = props => {
                 key={item.key}
                 item={item.text}
                 removeItem={() => removeItem(item.key)}
+                completeTask={() => completeTask(item.key)}
+                completed={item.completed}
             />
-            // <li className='item' key={item.key}>{item.text}
-            //     <button onClick={() => removeItem(item.key)}>Remove</button>
-            // </li>
             )}
         </ul>
     )

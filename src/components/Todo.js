@@ -1,12 +1,21 @@
 import React from 'react'
-
-const Todo = ({key, removeItem, item}) => {
+import { MdDelete } from "react-icons/md";
+import { MdDone } from "react-icons/md";
+const Todo = ({key, removeItem, completeTask, item, completed}) => {
     return (
         <li key={key}>
-            <div>
+            <div className={completed ? 'complete' : 'incomplete'}>
             {item}
             </div>
-            <button className='removeBtn' onClick={removeItem}>Remove</button>
+
+            <div>
+                <button className='completeTask' onClick={completeTask}>
+                    <MdDone />
+                </button>
+                <button className='removeBtn' onClick={removeItem}>
+                    <MdDelete />
+                </button>
+            </div>
         </li>
     )
 }

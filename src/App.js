@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       todo: {
         text: '',
-        key: ''
+        key: '',
+        completed: false
       },
       todoList: []
     }
@@ -22,6 +23,7 @@ class App extends Component {
     this.handleTodo = this.handleTodo.bind(this)
     this.removeItem = this.removeItem.bind(this)
     this.focusInput = React.createRef()
+    this.completeTask = this.completeTask.bind(this)
   }
   componentDidMount(){
     this.focusInput.current.focus()
@@ -34,12 +36,25 @@ class App extends Component {
       this.setState({
         todo: {
           text: '',
-          key: ''
+          key: '',
+          completed: false
         },
         todoList: [...this.state.todoList, newItem]
       })
     }
 
+  }
+  completeTask(key){
+    const todos = this.state.todoList
+    let updateTodos = todos.map(todo => {
+      if(todo.key === key) {
+        todo.completed = !todo.completed
+      }
+      return todo
+    })
+    this.setState({
+      todoList: updateTodos
+    })
   }
   removeItem(key){
     const filteredItems = this.state.todoList.filter(item => item.key !== key)
@@ -52,7 +67,8 @@ class App extends Component {
     this.setState({
       todo: {
         text: e.target.value,
-        key: Date.now()
+        key: Date.now(),
+        completed: false
       }
     })
   }
@@ -69,6 +85,7 @@ class App extends Component {
         />
         <TodoList
           removeItem={this.removeItem}
+          completeTask={this.completeTask}
           todoList={this.state.todoList}
         />
       </div>
