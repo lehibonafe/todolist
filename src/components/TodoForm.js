@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdAdd } from "react-icons/md";
+
 const TodoForm = ({addItem, todo, handleTodo, focusInput, taskCounter}) => {
     
     return (
@@ -12,7 +12,7 @@ const TodoForm = ({addItem, todo, handleTodo, focusInput, taskCounter}) => {
                 onChange={handleTodo}
                 ref={focusInput}
             />
-            <button className='addBtn' type='submit'>Add</button>
+            <button className='addBtn' type='submit'>add</button>
             </form>
             <p className='taskCounter'>You have {taskCounter} {taskCounter === 1 || taskCounter <  1 ? "task" : "tasks"}</p>
         </div>

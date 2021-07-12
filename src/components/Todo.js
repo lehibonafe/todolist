@@ -1,19 +1,19 @@
 import React from 'react'
-import { MdDelete } from "react-icons/md";
+import { BsTrash2Fill } from "react-icons/bs";
 import { MdDone } from "react-icons/md";
 const Todo = ({key, removeItem, completeTask, item, completed}) => {
     return (
         <li key={key}>
-            <div className={completed ? 'complete' : 'incomplete'}>
+            <div className={ completed ? 'complete' : 'incomplete'}>
             {item}
             </div>
 
-            <div>
+            <div className="list-button">
                 <button className='completeTask' onClick={completeTask}>
                     <MdDone />
                 </button>
                 <button className='removeBtn' onClick={removeItem}>
-                    <MdDelete />
+                    <BsTrash2Fill />
                 </button>
             </div>
         </li>

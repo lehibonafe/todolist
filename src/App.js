@@ -1,9 +1,8 @@
-import { render } from '@testing-library/react';
 import React, { Component } from 'react'
 import './App.css';
 import TodoForm from './components/TodoForm'
 import TodoList from './components/TodoList';
-
+import Github from "./components/Github";
 
 
 class App extends Component {
@@ -76,6 +75,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
+        <Github />
         <TodoForm 
           addItem={this.addItem}
           todo={this.state.todo.text}
